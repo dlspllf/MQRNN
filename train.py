@@ -17,7 +17,8 @@ def calc_loss(output_of_ldecoder:torch.Tensor,
         for i in range(quantiles_size):
             p = quantiles[i]
             errors = cur_real_vals_tensor - output_of_ldecoder[:,:,:,i]
-            cur_loss = torch.max( (p-1)*errors, p*errors )
+            # cur_loss = torch.max((p-1)*errors,0)+torch.max(p*errors,0)#torch.max会把0认为是指定的维度，所以会返回一个元组
+            cur_loss = torch.clamp((p-1)*errors, min=0) + torch.clamp(p*errors, min=0)#使用clamp函数限制tensor的取值范围，代替了torch.max
             total_loss += torch.sum(cur_loss)
         return total_loss
 
