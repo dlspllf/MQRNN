@@ -12,5 +12,6 @@ Model of Paper: A Multi-Horizon Quantile Recurrent Forecaster
 4. 损失函数即为文章中的损失函数：![image](https://user-images.githubusercontent.com/87350210/232199195-7fef146a-f8ac-4094-8b4f-f022aa232fcd.png)
 然后对每个FCT、每个batch、每个horizon的每个quantile的损失进行求和。
 
+5. 模型评价：我用的是天池大赛的余额宝数据，只用了四月到八月的数据，150+个点。在调试的过程中，感觉到这个模型非常难训练，但是模型的结构和损失函数我都是严格按照论文来的，可能模型本身效果不是特别好，同时我这个数据也不是很好吧。
 # 文章内容简介
 ![MQRNN](https://user-images.githubusercontent.com/87350210/232200757-8a61109b-8e22-4f15-819d-b146f11e5fc7.png)
