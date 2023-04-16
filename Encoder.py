@@ -28,11 +28,11 @@ class Encoder(nn.Module):
                             bidirectional= b_direction)
         #二维及以上的参数，进行正交矩阵初始化
         #一维参数使用正态分布初始化
-        for param in self.LSTM.parameters():
-            if len(param.shape) >= 2:
-                torch.nn.init.orthogonal_(param.data)
-            else:
-                torch.nn.init.normal_(param.data)
+        # for param in self.LSTM.parameters():
+        #     if len(param.shape) >= 2:
+        #         torch.nn.init.orthogonal_(param.data)
+        #     else:
+        #         torch.nn.init.normal_(param.data)
     
     def forward(self,input):
         
