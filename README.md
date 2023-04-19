@@ -5,7 +5,7 @@ Model of Paper: A Multi-Horizon Quantile Recurrent Forecaster
 
 1. Encoder是一个LSTM：input.shape 为 [seq_len,batch_size,1+covariate_size], output.shape 为 [seq_len,batch_size,hidden_size]
 
-2. Globaldecoder是一个MLP：input.shape 为 [seq_len,batch_size,hidden_size], output.shape 为 [seq_len,batch_size,(horizon_size+1)*context_size]
+2. Globaldecoder是一个MLP：input.shape 为 [seq_len,batch_size,hidden_size+covariate_size], output.shape 为 [seq_len,batch_size,(horizon_size+1)*context_size]
 
 3. Localdecoder是一个MLP：input.shape 为 [seq_len,batch_size,horizon_size,context_size*2+covariate_size], output.shape 为 [seq_len,batch_size,horizon_size,quantiles_size]
 
